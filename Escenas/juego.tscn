@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvx7wjnuaalya"]
+
+[ext_resource type="PackedScene" uid="uid://dhggb26i3ogqv" path="res://Escenas/player.tscn" id="1_4bbd4"]
+[ext_resource type="Texture2D" uid="uid://dannf3lotrhvl" path="res://AssetsJuego/bosque.png" id="1_fqs5w"]
+[ext_resource type="PackedScene" uid="uid://cy76ja782jhko" path="res://Escenas/collecionable.tscn" id="3_bt3bn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gii4x"]
+size = Vector2(336, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akl0d"]
+size = Vector2(20, 192)
+
+[node name="Game" type="Node"]
+
+[node name="Bosque" type="Sprite2D" parent="."]
+position = Vector2(162, 81)
+scale = Vector2(0.338281, 0.31388)
+texture = ExtResource("1_fqs5w")
+
+[node name="Player" parent="." instance=ExtResource("1_4bbd4")]
+position = Vector2(162, 145)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(162, 167.5)
+shape = SubResource("RectangleShape2D_gii4x")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(159, -1)
+shape = SubResource("RectangleShape2D_gii4x")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(-11, 87)
+shape = SubResource("RectangleShape2D_akl0d")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(335, 83)
+shape = SubResource("RectangleShape2D_akl0d")
+
+[node name="Collecionable" parent="." instance=ExtResource("3_bt3bn")]
+position = Vector2(204, 133)
